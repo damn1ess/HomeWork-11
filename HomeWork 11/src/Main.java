@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+
 public class Main {
     //Task 1 method
     public static void checkLongYear(long year) {
