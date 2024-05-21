@@ -66,8 +66,11 @@ public class Main {
 
 
         System.out.println("\nTask 3");
-        System.out.println(calculateDeliveryTime(95));
-        System.out.println(calculateDeliveryTime(1));
-        System.out.println(calculateDeliveryTime(194));
+        calculateDeliveryTime(95);
+        calculateDeliveryTime(1);
+        calculateDeliveryTime(194);
     }
 }
+//По задаче 2 - почитайте внимательнее условия задачи, про 2015 год написано в старом условии задачи, в новом же чёрным
+// по белому написано - "Напишите метод, куда подаются два параметра: тип операционной системы (0 — iOS, 1 — Android )
+// и год выпуска устройства. Если устройство старше текущего года, предложите ему установить облегченную версию."
