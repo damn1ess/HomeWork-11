@@ -19,13 +19,13 @@ public class Main {
     //Task 2 method
     public static void recommendAppVersionBasedOnYearAndOS(int number, int clientOS) {
         int currentYear = LocalDate.now().getYear();
-        if (clientOS == 0 && number < currentYear && number > 0) {
+        if (clientOS == 0 && number < currentYear && number > 0 && number <=LocalDate.now().getYear()) {
             System.out.println("Установите облегчённую версию приложения для iOS по ссылке.");
-        } else if (clientOS == 0 && number >= currentYear) {
+        } else if (clientOS == 0 && number >= 2015 && number <=LocalDate.now().getYear()) {
             System.out.println("Установите версию приложения для iOS по ссылке.");
-        } else if (clientOS == 1 && number < currentYear && number > 0) {
+        } else if (clientOS == 1 && number < 2015 && number > 0 && number <=LocalDate.now().getYear()) {
             System.out.println("Установите облегчённую версию приложения для Android по ссылке.");
-        } else if (clientOS == 1 && number >= currentYear && number > 0) {
+        } else if (clientOS == 1 && number >= 2015 && number <=LocalDate.now().getYear()) {
             System.out.println("Установите версию приложения для Android по ссылке.");
         } else  {
             System.out.println("Данные указаны некорректно.");
@@ -63,12 +63,13 @@ public class Main {
         recommendAppVersionBasedOnYearAndOS(2015, 0);
         recommendAppVersionBasedOnYearAndOS(2024, 2);
         recommendAppVersionBasedOnYearAndOS(2012, 1);
+        recommendAppVersionBasedOnYearAndOS(0, 1);
 
 
         System.out.println("\nTask 3");
-        calculateDeliveryTime(95);
-        calculateDeliveryTime(1);
-        calculateDeliveryTime(194);
+        System.out.println(calculateDeliveryTime(95));
+        System.out.println(calculateDeliveryTime(1));
+        System.out.println(calculateDeliveryTime(194));
     }
 }
 //По задаче 2 - почитайте внимательнее условия задачи, про 2015 год написано в старом условии задачи, в новом же чёрным
