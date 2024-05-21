@@ -1,6 +1,75 @@
+import java.time.LocalDate;
 
 public class Main {
+    //Task 1 method
+    public static void checkLeapYear(long year) {
+        boolean yearDivBy4 = year % 4 == 0;
+        boolean yearDivBy100 = year % 100 != 0;
+        boolean yearDivBy400 = year % 400 == 0;
+        boolean moreThan1584 = year >= 1584;
+        if (moreThan1584 && yearDivBy4 && (yearDivBy100 || yearDivBy400)) {
+            System.out.println("Год високосный");
+        } else {
+            System.out.println("Год не високосный или вы указали некорректный год.");
+        }
+    }
+    //===================================================================================
+
+
+    //Task 2 method
+    public static void recommendAppVersionBasedOnYearAndOS(int number, int clientOS) {
+        int currentYear = LocalDate.now().getYear();
+        if (clientOS == 0 && number <= currentYear && number > 0 && number < 2015) {
+            System.out.println("Установите облегчённую версию приложения для iOS по ссылке.");
+        } else if (clientOS == 0 && number >= 2015 && number <= currentYear) {
+            System.out.println("Установите версию приложения для iOS по ссылке.");
+        } else if (clientOS == 1 && number < 2015 && number > 0 && number <= currentYear) {
+            System.out.println("Установите облегчённую версию приложения для Android по ссылке.");
+        } else if (clientOS == 1 && number >= 2015 && number <= currentYear) {
+            System.out.println("Установите версию приложения для Android по ссылке.");
+        } else  {
+            System.out.println("Данные указаны некорректно.");
+        }
+    }
+    //===================================================================================
+
+
+    //Task 3 method
+    public static int calculateDeliveryTime(int deliveryDistance) {
+        int deliveryTime;
+        if (deliveryDistance <= 20 && deliveryDistance >= 0) {
+            deliveryTime = 1;
+        } else if (deliveryDistance <= 60 && deliveryDistance >= 0) {
+            deliveryTime = 2;
+        } else if (deliveryDistance <= 100 && deliveryDistance >= 0) {
+            deliveryTime = 3;
+        } else {
+            deliveryTime = 0;
+        }
+        return deliveryTime;
+    }
+    //===================================================================================
+
+
     public static void main(String[] args) {
-        System.out.println("Hello and welcome!");
+        System.out.println("Task 1");
+        checkLeapYear(2015);
+        checkLeapYear(1588);
+        checkLeapYear(2013);
+
+        System.out.println("\nTask 2");
+        recommendAppVersionBasedOnYearAndOS(2015, 0);
+        recommendAppVersionBasedOnYearAndOS(2024, 1);
+        recommendAppVersionBasedOnYearAndOS(2012, 1);
+        recommendAppVersionBasedOnYearAndOS(0, 1);
+
+
+        System.out.println("\nTask 3");
+        int [] deliveryDistance = {12, 34, 66, 891};
+        int deliveryTime;
+        for (int i = 0; i < deliveryDistance.length; i++) {
+            deliveryTime = calculateDeliveryTime(deliveryDistance[i]);
+            System.out.println(deliveryTime);
+        }
     }
 }
