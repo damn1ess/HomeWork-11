@@ -23,7 +23,7 @@ public class Main {
             System.out.println("Установите облегчённую версию приложения для iOS по ссылке.");
         } else if (clientOS == 0 && number >= currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке.");
-        }else if (clientOS == 1 && number < currentYear && number > 0) {
+        } else if (clientOS == 1 && number < currentYear && number > 0) {
             System.out.println("Установите облегчённую версию приложения для Android по ссылке.");
         } else if (clientOS == 1 && number >= currentYear && number > 0) {
             System.out.println("Установите версию приложения для Android по ссылке.");
