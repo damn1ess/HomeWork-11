@@ -19,13 +19,13 @@ public class Main {
     //Task 2 method
     public static void recommendAppVersionBasedOnYearAndOS(int number, int clientOS) {
         int currentYear = LocalDate.now().getYear();
-        if (clientOS == 0 && number < currentYear && number > 0 && number <=LocalDate.now().getYear()) {
+        if (clientOS == 0 && number <= currentYear && number > 0 && number < 2015) {
             System.out.println("Установите облегчённую версию приложения для iOS по ссылке.");
-        } else if (clientOS == 0 && number >= 2015 && number <=LocalDate.now().getYear()) {
+        } else if (clientOS == 0 && number >= 2015 && number <= currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке.");
-        } else if (clientOS == 1 && number < 2015 && number > 0 && number <=LocalDate.now().getYear()) {
+        } else if (clientOS == 1 && number < 2015 && number > 0 && number <= currentYear) {
             System.out.println("Установите облегчённую версию приложения для Android по ссылке.");
-        } else if (clientOS == 1 && number >= 2015 && number <=LocalDate.now().getYear()) {
+        } else if (clientOS == 1 && number >= 2015 && number <= currentYear) {
             System.out.println("Установите версию приложения для Android по ссылке.");
         } else  {
             System.out.println("Данные указаны некорректно.");
@@ -39,16 +39,14 @@ public class Main {
         int deliveryTime;
         if (deliveryDistance <= 20 && deliveryDistance >= 0) {
             deliveryTime = 1;
-            return deliveryTime;
         } else if (deliveryDistance <= 60 && deliveryDistance >= 0) {
             deliveryTime = 2;
-            return deliveryTime;
         } else if (deliveryDistance <= 100 && deliveryDistance >= 0) {
             deliveryTime = 3;
-            return deliveryTime;
         } else {
-            return 0;
+            deliveryTime = 0;
         }
+        return deliveryTime;
     }
     //===================================================================================
 
@@ -61,14 +59,17 @@ public class Main {
 
         System.out.println("\nTask 2");
         recommendAppVersionBasedOnYearAndOS(2015, 0);
-        recommendAppVersionBasedOnYearAndOS(2024, 2);
+        recommendAppVersionBasedOnYearAndOS(2024, 1);
         recommendAppVersionBasedOnYearAndOS(2012, 1);
         recommendAppVersionBasedOnYearAndOS(0, 1);
 
 
         System.out.println("\nTask 3");
-        System.out.println(calculateDeliveryTime(95));
-        System.out.println(calculateDeliveryTime(1));
-        System.out.println(calculateDeliveryTime(194));
+        int [] deliveryDistance = {12, 34, 66, 891};
+        int deliveryTime;
+        for (int i = 0; i < deliveryDistance.length; i++) {
+            deliveryTime = calculateDeliveryTime(deliveryDistance[i]);
+            System.out.println(deliveryTime);
+        }
     }
 }
